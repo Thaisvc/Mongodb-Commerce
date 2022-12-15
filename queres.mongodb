@@ -1,12 +1,29 @@
 use('commerce')
-db.produtos
-  .deleteMany(
-   {curtidas: {$lt: 50} }
-  )
- 
+db.produtos.find(
+    {
+     valoresNutricionais: {
+         $elemMatch: {
+             tipo: "calorias",
+             quantidade: { $lt: 500 },
+         },
+     },
+    
+    },
+     { nome: true, _id: false },
+   );
+
+
+
+
+
+
+
+
+
+
+
 
 use('commerce')
   db.produtos.find(
-    {},
-    { nome: true, _id: false },
+   
   );
