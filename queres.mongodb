@@ -1,6 +1,9 @@
 use('commerce')
 db.produtos
-  .find({vendidos: { $gt: 50, $lt: 100}}, { nome: 1, vendidos: 1, _id: 0 })
+  .find(
+   { $or: [{ curtidas: 36 }, { vendidos: 85 }] },
+    { nome: 1, vendidos: 1, _id: 0, curtidas: 1 }
+  )
   
 
 use('commerce')
